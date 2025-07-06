@@ -18,11 +18,12 @@
 </main>
 
 <style>
-    :global(.body-bg) {
+    :global(body) {
         background: linear-gradient(90deg, #59B390 100%, rgba(89, 179, 144, 0.44));
         margin: 0;
         padding: 0;
         min-height: 100vh;
+        font-family: 'Inter', serif;
     }
 
     main {
