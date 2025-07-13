@@ -43,4 +43,4 @@ Si deseas contribuir a este proyecto, no dudes en hacerlo. Aquí están las paut
 
 Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarme:
 - Email: bisasmendic@gmail.com
-- GitHub: [@Mapachee](https://github.com/Mapachee)
+- GitHub: [@Mapacheee](https://github.com/Mapacheee)
