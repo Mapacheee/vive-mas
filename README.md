@@ -1,38 +1,47 @@
-# sv
+# <img width="64" height="64" alt="vivemas_logo" src="https://github.com/user-attachments/assets/8da2f021-9ff5-4311-a7df-553e5152d2de" /> Project Vive+ 
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Vive+ is a web platform developed for students of Biomedical Engineering. The main objective is to provide a space for well-being and social interaction through recreational and cultural activities.
 
-## Creating a project
+## Technologies Used
 
-If you're seeing this, you've probably already done this step. Congrats!
+This project is built with the following technologies:
+- SvelteKit
+- TypeScript
+- CSS
 
-```bash
-# create a new project in the current directory
-npx sv create
 
-# create a new project in my-app
-npx sv create my-app
-```
+## Installation
 
-## Developing
+To install and run this project on your local environment, follow these steps:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Mapacheee/vive-mas.git
+    ```
+2. Navigate to the project directory:
+   ```bash
+   cd vive-mas
+    ```
+3. Install dependencies:
+   ```bash
+   npm install
+    ```
+4. Start the development server:
+   ```bash
+   npm run dev
+    ```
+5. A link will appear in the console to open the web page.
 
-```bash
-npm run dev
+## Contributing
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+If you wish to contribute to this project, feel free to do so. Here are the steps to contribute:
+- Fork the repository.
+- Create a new branch for your changes.
+- Commit your changes.
+- Open a pull request.
 
-## Building
+### Contact
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+If you have any questions or need help, feel free to contact me:
+- EMail: bisasmendic@gmail.com
+- GitHub: [@Mapacheee](https://github.com/Mapacheee)
