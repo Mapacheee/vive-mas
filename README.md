@@ -1,46 +1,47 @@
-# <img width="64" height="64" alt="vivemas_logo" src="https://github.com/user-attachments/assets/8da2f021-9ff5-4311-a7df-553e5152d2de" /> Proyecto Vive+ 
+# <img width="64" height="64" alt="vivemas_logo" src="https://github.com/user-attachments/assets/8da2f021-9ff5-4311-a7df-553e5152d2de" /> Project Vive+ 
 
-Vive+ es una plataforma web desarrollada para estudiantes de Ingeniería Civil Biomédica. El objetivo principal es proporcionar un espacio para el bienestar y la interacción social a través de actividades recreativas y culturales.
+Vive+ is a web platform developed for students of Biomedical Engineering. The main objective is to provide a space for well-being and social interaction through recreational and cultural activities.
 
-### Tecnologías Utilizadas
+## Technologies Used
 
-Este proyecto está construido con las siguientes tecnologías:
+This project is built with the following technologies:
 - SvelteKit
 - TypeScript
 - CSS
 
-### Instalación
 
-Para instalar y ejecutar este proyecto en tu entorno local, sigue estos pasos:
+## Installation
 
-1. Clona el repositorio:
+To install and run this project on your local environment, follow these steps:
+
+1. Clone the repository:
    ```bash
    git clone https://github.com/Mapacheee/vive-mas.git
     ```
-2. Navega a la carpeta del proyecto:
+2. Navigate to the project directory:
    ```bash
    cd vive-mas
     ```
-3. Instala las dependencias:
+3. Install dependencies:
    ```bash
    npm install
     ```
-4. Inicia el servidor de desarrollo:
+4. Start the development server:
    ```bash
    npm run dev
     ```
-5. En consola te aparecerá el link para abrir la web.
+5. A link will appear in the console to open the web page.
 
-## Contribuciones
+## Contributing
 
-Si deseas contribuir a este proyecto, no dudes en hacerlo. Aquí están las pautas para contribuir:
-1. Haz un fork del repositorio.
-2. Crea una rama nueva para tus cambios.
-3. Haz un commit con tus cambios.
-4. Open un pull request.
+If you wish to contribute to this project, feel free to do so. Here are the steps to contribute:
+- Fork the repository.
+- Create a new branch for your changes.
+- Commit your changes.
+- Open a pull request.
 
-### Contacto
+### Contact
 
-Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarme:
-- Email: bisasmendic@gmail.com
+If you have any questions or need help, feel free to contact me:
+- EMail: bisasmendic@gmail.com
 - GitHub: [@Mapacheee](https://github.com/Mapacheee)
