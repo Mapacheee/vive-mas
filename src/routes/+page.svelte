@@ -1,6 +1,6 @@
 <main>
     <div class="home-image">
-        <img src="home/image_home.webp" alt="imagen">
+        <img src="home/home_image.webp" alt="imagen">
         <div class="overlay">
             <div class="overlay-text">
                 <h1>
@@ -49,6 +49,7 @@
     }
 
     .home-image img {
+
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -64,7 +65,6 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
         padding: 20px;
         box-sizing: border-box;
     }
@@ -74,7 +74,13 @@
     }
 
     .overlay h1 {
-        color: white;
+        background: linear-gradient(90deg, #ffc5b3, #ffe4db);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+
+        /*color: #580eff;*/
         font-size: 2.5rem;
         margin-bottom: 10px;
     }
@@ -128,7 +134,7 @@
         img {
             border-radius: 20px;
             margin-left: 15%;
-            height: 300px;
+            height: 220px;
             width: auto;
         }
     }
@@ -139,6 +145,7 @@
         margin-left: 20%;
         margin-bottom: 5%;
         color: #152B3C;
+        line-height: 0.5rem;
         font-weight: bold;
         font-size: 1.5rem;
         background: #D9D9D9;
