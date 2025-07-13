@@ -76,7 +76,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        filter: brightness(0.8);
+        filter: brightness(0.6);
     }
 
     .overlay {
@@ -98,18 +98,18 @@
     }
 
     .overlay h1 {
-        background: linear-gradient(90deg, #ffc5b3, #ffe4db);
+        background: linear-gradient(90deg, white, white);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         -webkit-text-fill-color: transparent;
-        font-size: 2.5rem;
+        font-size: 4rem;
         margin-bottom: 10px;
     }
 
     .overlay h2 {
         color: white;
-        font-size: 1.5rem;
+        font-size: 2rem;
         margin-bottom: 20px;
     }
 

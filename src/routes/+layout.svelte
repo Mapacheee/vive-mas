@@ -56,7 +56,7 @@
         animateParticles();
     });
 
-    window.addEventListener('resize', handleResize);
+    //window.addEventListener('resize', handleResize);
 </script>
 
 <svelte:head>

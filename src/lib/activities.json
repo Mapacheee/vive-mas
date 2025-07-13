@@ -22,5 +22,17 @@
     "organizer": "Centro Cultural Viña del Mar",
     "contact": "info@centroculturalvinadelmar.cl",
     "website": "www.centroculturalvinadelmar.cl"
+  },
+  {
+    "id": 3,
+    "title": "Clases de arte Viña del mar",
+    "location": "Viña del mar",
+    "imageUrl": "/ruta/de/la/imagen.jpg",
+    "description": "Taller de pintura y expresión artística",
+    "schedule": "Lunes y jueves: 15:00-17:00",
+    "address": "Avenida Prat 123, Viña del Mar",
+    "organizer": "Centro Cultural Viña del Mar",
+    "contact": "info@centroculturalvinadelmar.cl",
+    "website": "www.centroculturalvinadelmar.cl"
   }
 ]
