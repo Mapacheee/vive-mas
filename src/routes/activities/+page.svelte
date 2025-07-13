@@ -1,3 +1,15 @@
+<script lang="ts">
+    import { onMount } from 'svelte';
+    import type { Activity } from '$lib/types';
+
+    let activities: Activity[] = [];
+
+    onMount(async () => {
+        const response = await fetch('/src/lib/activities.json');
+        activities = await response.json();
+    });
+</script>
+
 <main>
     <div class="activities-image">
         <img src="activities/activities_image.webp" alt="imagen"/>
@@ -20,18 +32,6 @@
     </div>
 </main>
 
-<script lang="ts">
-    import { onMount } from 'svelte';
-    import type { Activity } from '$lib/types';
-
-    let activities: Activity[] = [];
-
-    onMount(async () => {
-        const response = await fetch('/src/lib/activities.json');
-        activities = await response.json();
-    });
-</script>
-
 <style>
     .activities-image {
         position: relative;
@@ -41,7 +41,6 @@
     }
 
     .activities-image img {
-
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -61,6 +60,7 @@
         padding: 20px;
         box-sizing: border-box;
     }
+
     .overlay-text {
         color: white;
         text-align: center;
@@ -72,8 +72,6 @@
         background-clip: text;
         color: transparent;
         -webkit-text-fill-color: transparent;
-
-        /*color: #580eff;*/
         font-size: 2.5rem;
         margin-bottom: 10px;
     }
@@ -83,6 +81,7 @@
         font-size: 1.5rem;
         margin-bottom: 20px;
     }
+
     .activities-container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

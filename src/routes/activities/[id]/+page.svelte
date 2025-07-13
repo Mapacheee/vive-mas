@@ -1,20 +1,8 @@
 <script lang="ts">
-    import { page } from '$app/stores';
     import type { Activity } from '$lib/types';
 
-    let activity: Activity | null = null;
-
-    const fetchActivity = async (id: string) => {
-        const activitiesResponse = await fetch('/src/lib/activities.json');
-        const activities: Activity[] = await activitiesResponse.json();
-        activity = activities.find(a => a.id.toString() === id) || null;
-    };
-
-    const id = page.id;
-
-    if (id) {
-        fetchActivity(id);
-    }
+    export let data;
+    let activity: Activity | null = data.props.activity || null;
 </script>
 
 {#if activity}
