@@ -1,6 +1,6 @@
 # <img width="64" height="64" alt="vivemas_logo" src="https://github.com/user-attachments/assets/8da2f021-9ff5-4311-a7df-553e5152d2de" /> Proyecto Vive+ 
 
-Vive+ es una plataforma web desarrollada por estudiantes de Ingeniería Civil Biomédica. Nuestro objetivo principal es proporcionar un espacio para el bienestar y la interacción social a través de actividades recreativas y culturales.
+Vive+ es una plataforma web desarrollada para estudiantes de Ingeniería Civil Biomédica. El objetivo principal es proporcionar un espacio para el bienestar y la interacción social a través de actividades recreativas y culturales.
 
 ### Tecnologías Utilizadas
 
