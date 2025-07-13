@@ -17,7 +17,10 @@
 
 <style>
     :global(body) {
-        background: linear-gradient(90deg, #59B390 100%, rgba(89, 179, 144, 0.44));
+        background: linear-gradient(to bottom,
+        rgba(89, 179, 144, 1) 0%,
+        rgba(89, 179, 144, 0.44) 100%
+        );
         margin: 0;
         font-family: 'Inter', serif;
         display: flex;
