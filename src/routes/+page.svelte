@@ -152,10 +152,7 @@
 
     .talleres-container {
         display: flex;
-        background: linear-gradient(to right,
-        rgba(236, 191, 71, 1) 0%,
-        rgba(236, 191, 71, 0.44) 100%
-        );
+        background: linear-gradient(to right, #ecbf47, #ffe18f);
         border-radius: 15px;
         align-items: center;
         margin: 40px 3%;
