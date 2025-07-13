@@ -76,12 +76,6 @@
         margin-bottom: 10px;
     }
 
-    .overlay h2 {
-        color: white;
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-    }
-
     .activities-container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
