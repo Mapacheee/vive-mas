@@ -1,6 +1,7 @@
 <script lang="ts">
     import Navbar from "$lib/components/Navbar.svelte";
     import Footer from "$lib/components/Footer.svelte";
+    import { page } from '$app/state';
 </script>
 
 <svelte:head>
@@ -8,7 +9,9 @@
 </svelte:head>
 
 <div class="page-container">
-    <Navbar />
+    {#if !page.route.id?.startsWith('/activities/[id]')}
+        <Navbar />
+    {/if}
     <main>
         <slot />
     </main>
