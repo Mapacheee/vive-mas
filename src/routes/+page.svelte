@@ -176,6 +176,8 @@
     .talleres-info p {
         font-size: 1.2rem;
         margin-bottom: 20px;
+        color: white;
+        font-weight: bold;
     }
 
     .talleres-container img {
