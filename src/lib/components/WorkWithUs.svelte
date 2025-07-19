@@ -74,7 +74,7 @@
 
 
     {#if showModal}
-        <div class="modal-overlay" on:click|self={closeModal}>
+        <button class="modal-overlay" on:click|self={closeModal}>
             <div class="modal">
                 <h3>Publicar nueva actividad</h3>
                 <form on:submit|preventDefault={submit}>
@@ -97,7 +97,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </button>
     {/if}
 </div>
 

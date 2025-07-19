@@ -1,5 +1,6 @@
-import { readable } from 'svelte/store';
+import {readable, writable} from 'svelte/store';
 import type { Activity } from '$lib/types';
+export const activeLink = writable('');
 
 export const activities = readable<Activity[]>([], (set) => {
     fetch('/api/activities')

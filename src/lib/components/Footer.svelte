@@ -24,8 +24,7 @@
         </div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d836.1005593634042!2d-71.613353!3d-33.0458756
         !3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689e10012d12bc3%3A0xdd137b00312d3b8d!2sUV%20Facultad%20Ingenier%C3%ADa!5
-        e0!3m2!1ses-419!2scl!4v1752369045232!5m2!1ses-419!2scl" width="auto" height="100" style="border:0;"
-                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        e0!3m2!1ses-419!2scl!4v1752369045232!5m2!1ses-419!2scl" width="auto" height="100" style="border:0;" title="Mapa UV Ingeniería"></iframe>
     </div>
 </footer>
 
