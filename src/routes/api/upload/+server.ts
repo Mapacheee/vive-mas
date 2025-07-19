@@ -1,20 +1,18 @@
 import { json, error } from '@sveltejs/kit';
-import fs from 'fs';
-import path from 'path';
+import { put } from '@vercel/blob';
 import { v4 as uuid } from 'uuid';
 
 export async function POST({ request }) {
     const form = await request.formData();
     const file = form.get('file') as File;
-    if (!file || !file.type.startsWith('image/')) throw error(400, 'Imagen requerida');
+    if (!file || !file.type.startsWith('image/')) {
+        throw error(400, 'Imagen requerida');
+    }
 
-    const ext = path.extname(file.name);
-    const fileName = `${uuid()}${ext}`;
-    const uploadDir = 'static/uploads';
-    if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
+    const fileName = `${uuid()}.${file.name.split('.').pop()}`;
+    const { url } = await put(`uploads/${fileName}`, file, {
+        access: 'public',
+    });
 
-    const bytes = await file.arrayBuffer();
-    fs.writeFileSync(path.join(uploadDir, fileName), Buffer.from(bytes));
-
-    return json({ url: `/uploads/${fileName}` });
+    return json({ url });
 }
