@@ -1,5 +1,60 @@
-<script>
+<script lang="ts">
+    import { onMount } from 'svelte';
+    import { v4 as uuid } from 'uuid';
+
     export let partners = [];
+
+    let showModal = false;
+    let form = {
+        title: '',
+        location: '',
+        description: '',
+        schedule: '',
+        address: '',
+        organizer: '',
+        contact: '',
+        website: '',
+        maxParticipants: 0
+    };
+    let imageFile: File;
+    let imagePreview = '';
+
+    function openModal()  { showModal = true; }
+    function closeModal() { showModal = false; resetForm(); }
+
+    function resetForm() {
+        form = { title:'', location:'', description:'', schedule:'',
+            address:'', organizer:'', contact:'', website:'', maxParticipants:0 };
+        imagePreview = '';
+        imageFile = null!;
+    }
+
+    async function handleImage(e: Event) {
+        const target = e.target as HTMLInputElement;
+        imageFile = target.files![0];
+        imagePreview = URL.createObjectURL(imageFile);
+    }
+
+    async function submit() {
+        if (!imageFile) return alert('Sube una imagen');
+
+        const fd = new FormData();
+        fd.append('file', imageFile);
+        const { url: imageUrl } = await (await fetch('/api/upload', { method:'POST', body:fd })).json();
+
+        const res = await fetch('/api/activities/request', {
+            method: 'POST',
+            headers: { 'Content-Type':'application/json' },
+            body: JSON.stringify({ ...form, imageUrl })
+        });
+
+        if (res.ok) {
+            alert('Solicitud enviada y en revisión');
+            closeModal();
+        } else {
+            alert(await res.text());
+        }
+    }
 </script>
 
 <div class="work-with-container">
@@ -16,9 +71,37 @@
         <img src="vivemas_logo.webp" alt="Vive+" class="cta-logo" />
         <div class="call-to-action-text">
             <p class="cta-text">Puedes trabajar con nosotros y publicar tus actividades</p>
-            <a href="/join" class="cta-button">HACERME SOCIO</a>
+            <button class="cta-button" on:click={openModal}>Hacerme socio</button>
         </div>
     </div>
+
+
+    {#if showModal}
+        <div class="modal-overlay" on:click|self={closeModal}>
+            <div class="modal">
+                <h3>Publicar nueva actividad</h3>
+                <form on:submit|preventDefault={submit}>
+                    <input bind:value={form.title} placeholder="Título" required />
+                    <input bind:value={form.location} placeholder="Ubicación" required />
+                    <textarea bind:value={form.description} placeholder="Descripción" required></textarea>
+                    <input type="datetime-local" bind:value={form.schedule} required />
+                    <input bind:value={form.address} placeholder="Dirección" required />
+                    <input bind:value={form.organizer} placeholder="Organizador" required />
+                    <input bind:value={form.contact} placeholder="Contacto" required />
+                    <input bind:value={form.website} placeholder="Sitio web" required />
+                    <input type="number" min="1" bind:value={form.maxParticipants} placeholder="Máx. participantes" required />
+                    <input type="file" accept="image/*" on:change={handleImage} required />
+                    {#if imagePreview}
+                        <img src={imagePreview} alt="preview" class="preview" />
+                    {/if}
+                    <div class="actions">
+                        <button type="submit">Enviar</button>
+                        <button type="button" on:click={closeModal}>Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {/if}
 </div>
 
 <style>
@@ -107,4 +190,28 @@
     .cta-button:hover {
         background-color: #99C4FF;
     }
+    .modal-overlay {
+        position: fixed; inset:0;
+        background: rgba(0,0,0,.6);
+        display: grid; place-items:center;
+        z-index: 9999;
+    }
+    .modal {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 500px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    .modal h3 { margin-top:0; }
+    .modal form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .modal input, .modal textarea { padding: 8px; font-size: 1rem; }
+    .preview { max-width: 100%; margin-top: 8px; border-radius: 4px; }
+    .actions { display:flex; gap:10px; justify-content:flex-end; margin-top:15px; }
 </style>

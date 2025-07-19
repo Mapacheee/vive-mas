@@ -9,4 +9,6 @@ export interface Activity {
     organizer: string;
     contact: string;
     website: string;
+    maxParticipants: number;
+    createdAt?: string;
 }
