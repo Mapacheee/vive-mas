@@ -74,7 +74,11 @@
 
 
     {#if showModal}
-        <button class="modal-overlay" on:click|self={closeModal}>
+        <div class="modal-overlay"
+             role="button"
+             tabindex="0"
+             on:click|self={closeModal}
+             on:keydown={(e) => e.key === 'Escape' && closeModal()}>
             <div class="modal">
                 <h3>Publicar nueva actividad</h3>
                 <form on:submit|preventDefault={submit}>
@@ -97,7 +101,7 @@
                     </div>
                 </form>
             </div>
-        </button>
+        </div>
     {/if}
 </div>
 
