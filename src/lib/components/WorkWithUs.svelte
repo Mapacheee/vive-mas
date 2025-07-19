@@ -1,7 +1,4 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
-    import { v4 as uuid } from 'uuid';
-
     export let partners = [];
 
     let showModal = false;

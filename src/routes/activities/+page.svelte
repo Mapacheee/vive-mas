@@ -5,7 +5,7 @@
 
 <main>
     <div class="activities-image">
-        <img src="activities/activities_image.webp" alt="imagen"/>
+        <img src="/activities/activities_image.webp" alt="imagen"/>
         <div class="overlay">
             <div class="overlay-text">
                 <h1>Actividades</h1>
