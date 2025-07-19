@@ -1,14 +1,13 @@
-import type { PageLoad } from './$types';
+import { json, error } from '@sveltejs/kit';
 import { db } from '$lib/server/db.js';
 
-export const load: PageLoad = async ({ params }) => {
+// @ts-ignore
+export async function GET({ params }) {
     const id = Number(params.id);
-    if (isNaN(id)) return { activity: null };
+    if (isNaN(id)) throw error(400, 'Invalid id');
 
-    const stmt = db.prepare(`
-    SELECT * FROM activities WHERE id = ?
-  `);
-    const activity = stmt.get(id) ?? null;
+    const activity = db.prepare('SELECT * FROM activities WHERE id = ?').get(id);
+    if (!activity) throw error(404, 'Not found');
 
-    return { activity };
-};
+    return json(activity);
+}

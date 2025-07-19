@@ -1,13 +1,6 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
-    import type { Activity } from '$lib/types';
-
-    let activities: Activity[] = [];
-
-    onMount(async () => {
-        const response = await fetch('/src/lib/activities.json');
-        activities = await response.json();
-    });
+    export let data;
+    const { activities } = data;
 </script>
 
 <main>

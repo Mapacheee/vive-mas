@@ -1,8 +1,7 @@
 <script lang="ts">
     import type { Activity } from '$lib/types';
-
     export let data;
-    let activity: Activity | null = data.props.activity || null;
+    const activity: Activity | null = data.activity ?? null;
 </script>
 
 {#if activity}
