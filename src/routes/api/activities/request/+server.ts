@@ -1,22 +1,21 @@
 import { json, error } from '@sveltejs/kit';
-import { sql } from '$lib/server/db';
+import { prisma } from '$lib/server/db.js';
 
 export async function POST({ request }) {
-    const b = await request.json();
+    const body = await request.json();
     const { title, location, imageUrl, description, schedule,
-        address, organizer, contact, website, maxParticipants } = b;
+        address, organizer, contact, website, maxParticipants } = body;
 
     if (!title || !location || !imageUrl || !description ||
         !schedule || !address || !organizer || !contact || !website || maxParticipants <= 0)
         throw error(400, 'Faltan campos o inválidos');
 
-    if (new Date(schedule) <= new Date()) throw error(400, 'Fecha futura obligatoria');
+    if (new Date(schedule) <= new Date()) throw error(400, 'La fecha debe ser futura');
 
-    await sql`
-    INSERT INTO pending (title, location, imageUrl, description,
-                         schedule, address, organizer, contact, website, maxParticipants)
-    VALUES (${title}, ${location}, ${imageUrl}, ${description},
-            ${schedule}, ${address}, ${organizer}, ${contact}, ${website}, ${maxParticipants})
-  `;
+    await prisma.pending.create({
+        data: { title, location, imageUrl, description, schedule,
+            address, organizer, contact, website, maxParticipants }
+    });
+
     return json({ ok: true });
 }

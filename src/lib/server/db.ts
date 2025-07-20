@@ -1,4 +1,2 @@
-import { sql } from '@vercel/postgres';
-export const db = sql;
-
-export { sql };
+import { PrismaClient } from '@prisma/client';
+export const prisma = new PrismaClient();

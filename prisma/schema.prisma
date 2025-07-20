@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("PRISMA_DATABASE_URL")
+}
+
+model pending {
+  id              Int      @id @default(autoincrement())
+  title           String
+  location        String
+  imageUrl        String
+  description     String
+  schedule        String
+  address         String
+  organizer       String
+  contact         String
+  website         String
+  maxParticipants Int
+  createdAt       DateTime @default(now())
+}
