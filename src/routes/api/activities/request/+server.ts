@@ -1,26 +1,22 @@
 import { json, error } from '@sveltejs/kit';
-import { db } from '$lib/server/db.js';
-import { sql } from '@vercel/postgres';
+import { sql } from '$lib/server/db';
 
 export async function POST({ request }) {
-    const body = await request.json();
+    const b = await request.json();
     const { title, location, imageUrl, description, schedule,
-        address, organizer, contact, website, maxParticipants } = body;
+        address, organizer, contact, website, maxParticipants } = b;
 
-    if (!title || !location || !imageUrl || !description
-        || !schedule || !address || !organizer || !contact || !website || maxParticipants <= 0)
+    if (!title || !location || !imageUrl || !description ||
+        !schedule || !address || !organizer || !contact || !website || maxParticipants <= 0)
         throw error(400, 'Faltan campos o inválidos');
 
-    const scheduleDate = new Date(schedule);
-    if (scheduleDate <= new Date()) throw error(400, 'La fecha debe ser futura');
+    if (new Date(schedule) <= new Date()) throw error(400, 'Fecha futura obligatoria');
 
-    // @ts-ignore
-    await db.execute(sql`
-    INSERT INTO pending (title, location, imageUrl, description, 
+    await sql`
+    INSERT INTO pending (title, location, imageUrl, description,
                          schedule, address, organizer, contact, website, maxParticipants)
-    VALUES (${title}, ${location}, ${imageUrl}, ${description}, 
+    VALUES (${title}, ${location}, ${imageUrl}, ${description},
             ${schedule}, ${address}, ${organizer}, ${contact}, ${website}, ${maxParticipants})
-  `);
-
+  `;
     return json({ ok: true });
 }
