@@ -1,7 +1,6 @@
 <script lang="ts">
     import type { Activity } from '$lib/types';
     import { onMount } from 'svelte';
-    import { prisma } from '$lib/server/db.js';
 
     let featuredActivities: Activity[] = [];
 
