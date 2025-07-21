@@ -1,15 +1,15 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
     import type { Activity } from '$lib/types';
+    import { onMount } from 'svelte';
+    import { prisma } from '$lib/server/db.js';
 
-    let activities: Activity[] = [];
     let featuredActivities: Activity[] = [];
 
     onMount(async () => {
-        const response = await fetch('/src/lib/activities.json');
-        activities = await response.json();
+        const res = await fetch('/api/activities');
+        const activities = await res.json();
         featuredActivities = activities.slice(0, 3);
-    });
+        });
 </script>
 
 <main>
