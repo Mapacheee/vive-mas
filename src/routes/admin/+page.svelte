@@ -1,9 +1,12 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+
     let pendings: any[] = [];
+    let activities: any[] = [];
 
     onMount(async () => {
-        pendings = await (await fetch('/api/admin/pending')).json();
+        pendings      = await (await fetch('/api/admin/pending')).json();
+        activities    = await (await fetch('/api/admin/activities')).json();
     });
 
     async function approve(id: number, ok: boolean) {
@@ -13,8 +16,16 @@
             body: JSON.stringify({ id, approve: ok })
         });
         pendings = pendings.filter(p => p.id !== id);
+        pendings   = await (await fetch('/api/admin/pending')).json();
+        activities = await (await fetch('/api/admin/activities')).json();
+    }
+
+    async function deleteActivity(id: number) {
+        await fetch(`/api/admin/activities/${id}`, { method: 'DELETE' });
+        activities = activities.filter(a => a.id !== id);
     }
 </script>
+
 <div class="container">
     <h1>Admin – Actividades pendientes</h1>
     <div class="main">
@@ -25,6 +36,18 @@
                 <p>{p.description}</p>
                 <button on:click={() => approve(p.id, true)}>Aprobar</button>
                 <button on:click={() => approve(p.id, false)}>Rechazar</button>
+            </div>
+        {/each}
+    </div>
+
+    <h1>Actividades publicadas</h1>
+    <div class="main">
+        {#each activities as a}
+            <div class="card">
+                <h2>{a.title}</h2>
+                <img src={a.imageUrl} alt="" width="200" />
+                <p>{a.description}</p>
+                <button on:click={() => deleteActivity(a.id)}>🗑️ Eliminar</button>
             </div>
         {/each}
     </div>
