@@ -21,3 +21,18 @@ model pending {
   maxParticipants Int
   createdAt       DateTime @default(now())
 }
+
+model activities {
+  id              Int      @id @default(autoincrement())
+  title           String
+  location        String
+  imageUrl        String
+  description     String
+  schedule        String
+  address         String
+  organizer       String
+  contact         String
+  website         String
+  maxParticipants Int
+  createdAt       DateTime @default(now())
+}
