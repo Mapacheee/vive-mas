@@ -15,14 +15,37 @@
         pendings = pendings.filter(p => p.id !== id);
     }
 </script>
-
-<h1>Admin – Actividades pendientes</h1>
-{#each pendings as p}
-    <div class="card">
-        <h2>{p.title}</h2>
-        <img src={p.imageUrl} alt="" width="200" />
-        <p>{p.description}</p>
-        <button on:click={() => approve(p.id, true)}>Aprobar</button>
-        <button on:click={() => approve(p.id, false)}>Rechazar</button>
+<div class="container">
+    <h1>Admin – Actividades pendientes</h1>
+    <div class="main">
+        {#each pendings as p}
+            <div class="card">
+                <h2>{p.title}</h2>
+                <img src={p.imageUrl} alt="" width="200" />
+                <p>{p.description}</p>
+                <button on:click={() => approve(p.id, true)}>Aprobar</button>
+                <button on:click={() => approve(p.id, false)}>Rechazar</button>
+            </div>
+        {/each}
     </div>
-{/each}
+</div>
+
+<style>
+    .container {
+        margin-left: 5%;
+    }
+    h1 {
+        color: #E47C5D;
+    }
+    .main {
+        display: flex;
+        gap: 50px;
+        color: #152B3C;
+    }
+
+    .card {
+        padding: 20px;
+        border-radius: 10px;
+        background: #e8fff6;
+    }
+</style>

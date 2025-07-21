@@ -82,15 +82,25 @@
             <div class="modal">
                 <h3>Publicar nueva actividad</h3>
                 <form on:submit|preventDefault={submit}>
+                    <p>Título de la publicación</p>
                     <input bind:value={form.title} placeholder="Título" required />
+                    <p>Ubicación del evento</p>
                     <input bind:value={form.location} placeholder="Ubicación" required />
+                    <p>Descripción del evento</p>
                     <textarea bind:value={form.description} placeholder="Descripción" required></textarea>
+                    <p>Fecha del evento</p>
                     <input type="datetime-local" bind:value={form.schedule} required />
+                    <p>Dirección del evento</p>
                     <input bind:value={form.address} placeholder="Dirección" required />
+                    <p>Organizador del evento</p>
                     <input bind:value={form.organizer} placeholder="Organizador" required />
+                    <p>Contacto del evento</p>
                     <input bind:value={form.contact} placeholder="Contacto" required />
+                    <p>Web del evento</p>
                     <input bind:value={form.website} placeholder="Sitio web" required />
+                    <p>Máximo de participantes</p>
                     <input type="number" min="1" bind:value={form.maxParticipants} placeholder="Máx. participantes" required />
+                    <p>Agregar foto</p>
                     <input type="file" accept="image/*" on:change={handleImage} required />
                     {#if imagePreview}
                         <img src={imagePreview} alt="preview" class="preview" />
@@ -214,5 +224,10 @@
     }
     .modal input, .modal textarea { padding: 8px; font-size: 1rem; }
     .preview { max-width: 100%; margin-top: 8px; border-radius: 4px; }
-    .actions { display:flex; gap:10px; justify-content:flex-end; margin-top:15px; }
+    .actions {
+        display:flex;
+        gap:10px;
+        justify-content: flex-end;
+        margin-top:15px;
+    }
 </style>
