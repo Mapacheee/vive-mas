@@ -5,8 +5,8 @@
     let activities: any[] = [];
 
     onMount(async () => {
-        pendings      = await (await fetch('/api/admin/pending')).json();
-        activities    = await (await fetch('/api/admin/activities')).json();
+        pendings   = await (await fetch('/api/admin/pending')).json();
+        activities = await (await fetch('/api/admin/activities')).json();
     });
 
     async function approve(id: number, ok: boolean) {
@@ -15,7 +15,6 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id, approve: ok })
         });
-        pendings = pendings.filter(p => p.id !== id);
         pendings   = await (await fetch('/api/admin/pending')).json();
         activities = await (await fetch('/api/admin/activities')).json();
     }
